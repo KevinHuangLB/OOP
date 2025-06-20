@@ -1,5 +1,5 @@
 class Cloud {
-  float x, y, size, dist;
+  float x, y, size, dist,vx;
   float distPositionDetermine = random(100);
   float distPositionDetermine2 = random(100);
   boolean growing = true;
@@ -8,7 +8,8 @@ class Cloud {
   Cloud() {
     x= random(0, width);
     y = random(0, height / 3);
-    size = random(50, 70);
+    vx = random(1,3);
+    size = random(80, 100);
     dist = random(10, 15);
     growSpeed = random(0.25,1);
   }
@@ -39,14 +40,19 @@ class Cloud {
   void act() {
     if (growing == true) {
       size += growSpeed;
-      if (size >= 80) {
+      if (size >= 120) {
         growing = false;
       }
     } else {
       size -= growSpeed;
-      if (size <= 40) {
+      if (size <= 60) {
         growing = true;
       }
     }
+    x += vx;
+    if (x > width + size){
+      x = -size;
+    }
+    
   }
 }
