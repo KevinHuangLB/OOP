@@ -5,10 +5,13 @@ class Flower {
   float petalSize;
   float distPetal;
   color c;
-  float dist = dist(mouseX,mouseY,x,y - 25);
-  float normalSize = size;
+  //float d = dist(mouseX,mouseY,x,y - 25);
+  float normalSize;
   float maxSize = 50;
-  float minDist = 50;
+  float minDist = 35;
+  float minDistPetal;
+  float normalSizePetal;
+  float maxSizePetal;
 
   Flower() {
     x = random(0, width);
@@ -19,7 +22,11 @@ class Flower {
     flowerCenterColorDetermine = int(random(5));
     petalSize = size / 1.5;
     distPetal = size / 2;
-    c = get(int(x), int(y));
+    minDistPetal = 35;
+    
+    normalSize = size;
+    normalSizePetal = petalSize;
+    maxSizePetal = 50 / 1.5;
   }
   void show() {
     if (stemColorDetermine < 33) fill(mintyGreen);
@@ -41,9 +48,15 @@ class Flower {
     //  size = int((500 / dist(mouseX, mouseY, x, (y - 25))));
     //  petalSize = int((500 / dist(mouseX,mouseY,x,(y - 25))));
     //}
-    if (dist < minDist){
-      float growth = map(dist,0,minDist,normalSize,maxSize);
-      
+    float d = dist(mouseX,mouseY,x,y - 25);
+    if (d < minDist){
+      float growth = map(d,0,minDist,maxSize,normalSize);
+      float growthPetal = map(d,0,minDistPetal,maxSizePetal,normalSizePetal);
+      size = growth;
+      petalSize = growthPetal * 1.65;
+    } else{
+      size = normalSize;
+      petalSize = normalSizePetal;
     }
   }
 }

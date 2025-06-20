@@ -5,7 +5,7 @@ class Rain {
     x= random(0, width);
     y = random(200, height);
     vx = 0;
-    vy = random(8,15);
+    vy = random(12,16);
     size = vx;
   }
 

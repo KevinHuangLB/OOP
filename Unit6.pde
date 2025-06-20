@@ -15,7 +15,7 @@ Flower[] myFlowers;
 int numFlower;
 
 color[] petalColors = {#E57373, #BA68C8, #4FC3F7, #81C784, #FFD54F, #F06292, #9575CD, #7986CB};
-color flowerCenterColors[] = {#FFFDD0,#FFECB3,#FFF8DC,#FFFACD,#FDF6E3};
+color flowerCenterColors[] = {#FFFDD0, #FFECB3, #FFF8DC, #FFFACD, #FDF6E3};
 
 color white = #FFFFFF;
 color skyBlue = #87CEEB;
@@ -53,11 +53,11 @@ void setup() {
   for (int j = 0; j < numCloud; j++) {
     myClouds[j] = new Cloud();
   }
-  
-  numFlower = 30;
+
+  numFlower = 20;
   myFlowers = new Flower[numFlower];
-  
-  for (int k = 0; k < numFlower; k++){
+
+  for (int k = 0; k < numFlower; k++) {
     myFlowers[k] = new Flower();
   }
 }
